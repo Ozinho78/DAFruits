@@ -1,0 +1,109 @@
+<div class="fruitlist_content">
+  @for(item of fruitlist; track item.name){
+      <section class="singleFruitBox">
+          <div>
+              <img src="assets/img/fruits/{{item.img}}" alt="" srcset="">
+              <!-- @if(item.stars < 3){
+                <img src="assets/img/fruits/{{item.img}}" alt="" srcset="">
+              } @else {
+                Banana fehlt 😢
+              } -->
+          </div>
+          <div>
+              <h2> {{item.name}}</h2>
+              <div>
+                  <p><b>Bewertung:</b></p>
+                  <div>
+                    @for(count of [1,2,3,4,5]; track fruitlist){
+                      @if(item.stars >= count){
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      } @else if(item.stars >= (count - 0.5)) {
+                        <img src="assets/img/stars/star-half.svg" alt="" srcset="">
+                      } @else {
+                        <img src="assets/img/stars/star-empty.svg" alt="" srcset="">
+                      }
+                    }
+
+                    <!-- <div [ngSwitch]="true">
+                      <div *ngSwitchCase="item.stars == 3.7">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      </div>
+                      
+                    </div> -->
+
+<!--                     
+                    <div [ngSwitch]="getRoundedStars(item.stars)">
+                      <div *ngSwitchCase="1">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      </div>
+                      <div *ngSwitchCase="2">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      </div>
+                      <div *ngSwitchCase="3">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      </div>
+                      <div *ngSwitchCase="4">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      </div>
+                      <div *ngSwitchCase="5">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                        <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      </div>
+                    </div>
+ -->
+
+                      <!-- <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      <img src="assets/img/stars/star.svg" alt="" srcset="">
+                      <img src="assets/img/stars/star-half.svg" alt="" srcset="">
+                      <img src="assets/img/stars/star-empty.svg" alt="" srcset=""> -->
+
+                      <!-- <p [ngStyle]="{'color': 'green'}">({{item.stars}})</p> -->
+                      <!-- <p [ngStyle]="{'color': fontColor}">({{item.stars}})</p> -->
+                      <p [ngStyle]="{'background-color': item.stars > 4 ? fontColorGood : fontColorBad , 'color': 'white'}">({{item.stars}})</p>
+                  </div>
+              </div>
+              <div><b>Art:</b><br>{{item.genus}}</div>
+              <div><b>Beschreibung:</b><br>{{item.description}}</div>
+              <div>
+                  <div>
+                    @for(review of item.reviews; track review){
+                      <div><b>{{review.name}}:</b><br>{{review.text}}</div>
+                    } @empty {
+                      no comments
+                    }
+                  </div>
+                  <div><input type="text"><button><img src="assets/img/arrow-35-32.png" alt="" srcset=""></button>
+                  </div>
+              </div>
+          </div>
+      </section>
+  }
+</div>
+
+
+<!--
+@for(item of fruitlist; track item.name; let index = $index; let last = $last; let first = $first){
+  <p>Name of the Fruit: {{item.name}}</p>
+  <p>{{index}}:&nbsp;{{item.name}}</p>
+  <p>{{first}}:&nbsp;{{item.name}}</p>
+  <p>{{last}}:&nbsp;{{item.name}}</p>
+}
+-->
+
+<!-- <p>fruitlist works!{{howItWorks}}</p> -->
+<!-- <p>fruitlist works!{{fruitlist[5].name}}</p> -->
+
+<!-- <img src="assets/img/fruits/{{fruitlist[5].img}}" alt=""> -->
