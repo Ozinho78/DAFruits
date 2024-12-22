@@ -1,5 +1,5 @@
 <div class="fruitlist_content">
-  @for(item of fruitlist; track item.name){
+  @for(item of fruitlist; track item.name; let index = $index){
       <section class="singleFruitBox">
           <div>
               <img src="assets/img/fruits/{{item.img}}" alt="" srcset="">
@@ -10,7 +10,7 @@
               } -->
           </div>
           <div>
-              <h2> {{item.name}}</h2>
+              <h2><app-singlefruit [testNumber]="index"></app-singlefruit> {{item.name}}</h2>
               <div>
                   <p><b>Bewertung:</b></p>
                   <div>
@@ -72,7 +72,8 @@
 
                       <!-- <p [ngStyle]="{'color': 'green'}">({{item.stars}})</p> -->
                       <!-- <p [ngStyle]="{'color': fontColor}">({{item.stars}})</p> -->
-                      <p [ngStyle]="{'background-color': item.stars > 4 ? fontColorGood : fontColorBad , 'color': 'white'}">({{item.stars}})</p>
+                      <!-- <p [ngStyle]="{'background-color': item.stars > 4 ? fontColorGood : fontColorBad , 'color': 'white'}">({{item.stars}})</p> -->
+                      <p [ngClass]="{'fontColorBad': item.stars < 3, 'fontColorGood': item.stars > 3}">({{item.stars}})</p>
                   </div>
               </div>
               <div><b>Art:</b><br>{{item.genus}}</div>
