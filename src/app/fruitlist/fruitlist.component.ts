@@ -67,6 +67,22 @@ export class FruitlistComponent {
     },
   ];
 
+  addComment(comment:string, index: number){
+    console.log(index,': ',comment);
+    this.fruitlist[index].reviews.push({
+      name: "Michael F.",
+      text: comment
+    });
+  }
+
+  numLog(index: number){
+    console.log(index); 
+  }
+
+  nameLog(name: string){
+    console.log(name); 
+  }
+
 
   getRoundedStars(value: number): number {
     return Math.round(value);
